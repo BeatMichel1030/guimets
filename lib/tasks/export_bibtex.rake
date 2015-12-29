@@ -8,9 +8,9 @@ namespace :bibtex do
     File.open(args[:file_name], "w+") do |f|
       Texte.where(actif: true).each do |tx|
         case tx.genre.nom
-          when 'livre', 'collection'  then f.puts "@book{#{tx.abreviation}"
-          when 'article'              then f.puts "@article{#{tx.abreviation}"
-          when 'dansCollection'       then f.puts "@incollection{#{tx.abreviation}"
+          when 'livre', 'collection'          then f.puts "@book{#{tx.abreviation}"
+          when 'article'                      then f.puts "@article{#{tx.abreviation}"
+          when 'dansCollection', 'dansLivre'  then f.puts "@incollection{#{tx.abreviation}"
         end
         if tx.auteur.present?
           if tx.genre.nom == 'collection'
@@ -28,6 +28,7 @@ namespace :bibtex do
         f.puts attribute('volume',    tx.volume)            if tx.volume.present?
         f.puts attribute('number',    tx.numero)            if tx.numero.present?
         f.puts attribute('pages',     tx.pages)             if tx.pages.present?
+        f.puts attribute('booktitle', tx.titre_livre)       if tx.titre_livre.present?
         f.puts '}'
       end
     end

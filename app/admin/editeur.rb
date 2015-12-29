@@ -20,4 +20,8 @@ ActiveAdmin.register Editeur do
     actions
   end
 
+  show do
+    attributes_table :nom, :id
+  end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151227102809) do
+ActiveRecord::Schema.define(version: 20151228131756) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20151227102809) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "auteurs", ["nom"], name: "index_auteurs_on_nom", unique: true
+
   create_table "citations", force: :cascade do |t|
     t.integer  "texte_id"
     t.integer  "page"
@@ -49,6 +51,8 @@ ActiveRecord::Schema.define(version: 20151227102809) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "editeurs", ["nom"], name: "index_editeurs_on_nom", unique: true
+
   create_table "genres", force: :cascade do |t|
     t.string   "nom"
     t.datetime "created_at", null: false
@@ -56,14 +60,14 @@ ActiveRecord::Schema.define(version: 20151227102809) do
   end
 
   create_table "textes", force: :cascade do |t|
-    t.string   "abreviation", null: false
+    t.string   "abreviation",                null: false
     t.integer  "auteur_id"
     t.string   "titre"
-    t.integer  "genre_id"
+    t.integer  "genre_id",                   null: false
     t.integer  "editeur_id"
     t.integer  "annee"
     t.string   "journal"
-    t.boolean  "actif"
+    t.boolean  "actif",       default: true
     t.integer  "notesCahier"
     t.integer  "notesPage"
     t.integer  "texte_id"
@@ -72,8 +76,10 @@ ActiveRecord::Schema.define(version: 20151227102809) do
     t.string   "numero"
     t.string   "pages"
     t.string   "remarque"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
+
+  add_index "textes", ["abreviation"], name: "index_textes_on_abreviation", unique: true
 
 end

@@ -25,4 +25,8 @@ ActiveAdmin.register Auteur do
     actions
   end
 
+  show do
+    attributes_table :nom, :libelle, :id
+  end
+
 end
