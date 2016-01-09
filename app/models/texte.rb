@@ -6,7 +6,7 @@
 #  abreviation :string           not null
 #  auteur_id   :integer
 #  titre       :string
-#  genre_id    :integer
+#  genre_id    :integer          not null
 #  editeur_id  :integer
 #  annee       :integer
 #  journal     :string

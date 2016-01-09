@@ -9,7 +9,7 @@ ActiveAdmin.register Texte do
                 :texte_id, :titre_livre, :volume, :numero, :pages, :remarque
   filter :auteur
   filter :titre
-  filter :abreviation
+  filter :abreviation_eq, label: 'abréviation'
   filter :genre
   filter :texte
   filter :journal

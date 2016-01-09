@@ -1,0 +1,11 @@
+
+form do |f|
+    f.input :recherche_description
+end
+
+# ici l'argument ("méta étant") est un exemple. Ca devrait etre la valeur du champ  input
+table_for Citation.contient("méta étant") do
+    column "note", :note
+    column "page", :textePage
+    column "description", :description
+end

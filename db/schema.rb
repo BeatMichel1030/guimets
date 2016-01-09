@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228131756) do
+ActiveRecord::Schema.define(version: 20160117151149) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -38,11 +38,9 @@ ActiveRecord::Schema.define(version: 20151228131756) do
   add_index "auteurs", ["nom"], name: "index_auteurs_on_nom", unique: true
 
   create_table "citations", force: :cascade do |t|
-    t.integer  "texte_id"
-    t.integer  "page"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer "note_id",     null: false
+    t.integer "textePage",   null: false
+    t.string  "description", null: false
   end
 
   create_table "editeurs", force: :cascade do |t|
@@ -59,6 +57,13 @@ ActiveRecord::Schema.define(version: 20151228131756) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.integer "texte_id",    null: false
+    t.string  "description"
+    t.integer "cahier",      null: false
+    t.integer "page",        null: false
+  end
+
   create_table "textes", force: :cascade do |t|
     t.string   "abreviation",                null: false
     t.integer  "auteur_id"
@@ -68,8 +73,6 @@ ActiveRecord::Schema.define(version: 20151228131756) do
     t.integer  "annee"
     t.string   "journal"
     t.boolean  "actif",       default: true
-    t.integer  "notesCahier"
-    t.integer  "notesPage"
     t.integer  "texte_id"
     t.string   "titre_livre"
     t.string   "volume"
