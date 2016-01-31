@@ -11,8 +11,6 @@
 #  annee       :integer
 #  journal     :string
 #  actif       :boolean          default(TRUE)
-#  notesCahier :integer
-#  notesPage   :integer
 #  texte_id    :integer
 #  titre_livre :string
 #  volume      :string
@@ -28,8 +26,7 @@ class Texte < ActiveRecord::Base
   belongs_to :auteur
   belongs_to :editeur
   belongs_to :genre
-  belongs_to :texte
-  has_many   :citations
+  has_many   :notes
   scope :actif,   -> { where(statut: true) }
   scope :inactif, -> { where(statut: false) }
 

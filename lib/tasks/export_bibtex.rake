@@ -1,5 +1,5 @@
-namespace :bibtex do
-  desc "export bibliography to latex"
+namespace :guimets do
+  desc "export bibtex"
   def attribute(name, value)
     "   ,#{name.ljust(12)} = {#{value}}"
   end

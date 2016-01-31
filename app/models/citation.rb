@@ -4,9 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  note_id     :integer          not null
-#  textePage   :integer
-#  notesPage   :integer
-#  description :text
+#  textePage   :integer          not null
+#  description :string           not null
 #
 
 class Citation < ActiveRecord::Base
@@ -16,6 +15,14 @@ class Citation < ActiveRecord::Base
 
   def name
     return note.texte.abreviation + '-' + textePage.to_s
+  end
+
+  def auteur_nom
+    return note.texte.auteur.nom
+  end
+
+  def texte_abreviation
+    return note.texte.abreviation
   end
 
 end

@@ -5,8 +5,8 @@
 #  id          :integer          not null, primary key
 #  texte_id    :integer          not null
 #  description :string
-#  notesCahier :integer
-#  notesPage   :integer
+#  cahier      :integer          not null
+#  page        :integer          not null
 #
 
 class Note < ActiveRecord::Base
@@ -19,11 +19,4 @@ class Note < ActiveRecord::Base
     return texte.abreviation + ' ' + cahier.to_s + ':' + page.to_s
   end
 
-  def texte_abreviation
-    return texte.abreviation
-  end
-
-  def auteur
-    return texte.auteur.nom
-  end
 end

@@ -5,8 +5,8 @@
 #  id          :integer          not null, primary key
 #  texte_id    :integer          not null
 #  description :string
-#  notesCahier :integer
-#  notesPage   :integer
+#  cahier      :integer          not null
+#  page        :integer          not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
