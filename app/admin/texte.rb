@@ -16,12 +16,6 @@ ActiveAdmin.register Texte do
   filter :notesCahier
   filter :actif, as: :check_boxes
 
-  # controller do
-  #   def find_resource
-  #     Texte.where(id = 1000)
-  #   end
-  # end
-
   index do
     column :abreviation
     column :auteur

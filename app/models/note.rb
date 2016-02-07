@@ -10,6 +10,8 @@
 #
 
 class Note < ActiveRecord::Base
+  # default_scope {order('cahier ASC, page ASC')}
+
   belongs_to :texte
   has_many   :citations
 
