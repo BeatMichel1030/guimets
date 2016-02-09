@@ -11,8 +11,6 @@
     </data-source>
     <data-source name="Rails citations: test" uuid="7421b782-f2af-44ed-bb6c-b2a04a080839">
       <first-sync>true</first-sync>
-      <user-name>biblio</user-name>
-      <user-password>dfc8dfc3dfc8dfc6dfc3dfc5</user-password>
     </data-source>
   </component>
 </project>
