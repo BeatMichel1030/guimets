@@ -19,39 +19,14 @@ ActiveAdmin.register Texte do
   index do
     column :abreviation
     column :auteur
-    column :notesCahier
-    column :notesPage
     column :titre, sortable: false
     actions
   end
 
   show do
-    attributes_table :titre, :auteur, :genre, :texte, :editeur, :annee, :notesCahier, :notesPage, :remarque,
+    attributes_table :titre, :auteur, :genre, :texte, :editeur, :annee, :remarque,
                      :titre_livre, :journal, :volume, :numero, :pages, :abreviation, :id, :actif
 
 
-  #   panel texte.titre, id: "my-panel" do
-  #    # span "Inside the panel"
-  #     div do
-  #       text_node texte.abreviation
-  #       em(" auteur: ")
-  #       text_node texte.auteur.libelle
-  #       text_node " genre: "
-  #       text_node texte.genre.nom
-  #     end
-  #     div do
-  #       text_node i(' cahier: ')
-  #       text_node texte.notesCahier
-  #       text_node " page:"
-  #       text_node texte.notesPage
-  #     end
-  #     div do
-  #       text_node " éditeur: "
-  #       text_node texte.editeur.nom
-  #       text_node " année:"
-  #       text_node texte.annee
-  #     end
-  #
-  #   end
   end
 end

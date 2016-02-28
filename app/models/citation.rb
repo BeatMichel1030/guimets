@@ -11,6 +11,9 @@
 class Citation < ActiveRecord::Base
   belongs_to :note
 
+  # Ce scope n'est pas utilisé dans l'application gui mais seulement dans le rake task search_citation
+  # (en principe obsolète mais pour l'instant je le laisse).
+
   scope :contient, lambda{|mot_cles| self.search(:description_contains_all => mot_cles.split(' ')).result}
 
   def name
