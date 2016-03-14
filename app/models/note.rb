@@ -10,10 +10,11 @@
 #
 
 class Note < ActiveRecord::Base
-  # default_scope {order('cahier ASC, page ASC')}
 
   belongs_to :texte
   has_many   :citations
+
+  default_scope -> {joins(:texte).order('textes.abreviation ASC', 'cahier ASC', 'page ASC')}
 
   accepts_nested_attributes_for :citations
 
