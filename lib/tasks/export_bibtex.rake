@@ -3,7 +3,7 @@ namespace :guimets do
   def attribute(name, value)
     "   ,#{name.ljust(12)} = {#{value}}"
   end
-  task :export, [:file_name]  => :environment do |t, args|
+  task :bibtex, [:file_name]  => :environment do |t, args|
 # puts args[:file_name]
     File.open(args[:file_name], "w+") do |f|
       Texte.where(actif: true).each do |tx|
