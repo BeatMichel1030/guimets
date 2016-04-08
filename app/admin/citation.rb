@@ -3,7 +3,13 @@ ActiveAdmin.register Citation do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :note_id, :textePage, :description  #, :all_desc
+  permit_params :note_id, :textePage, :description, :note_id
+
+  index do
+    column :note
+    column :textePage
+    column :description
+  end
 
   filter :note
 

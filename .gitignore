@@ -20,4 +20,4 @@
 *.*~
 
 # ignore Rubymine workspace stuff
-.idea/workspace.xml
+.idea/

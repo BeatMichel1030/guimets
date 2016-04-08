@@ -26,6 +26,7 @@ class Texte < ActiveRecord::Base
   belongs_to :auteur
   belongs_to :editeur
   belongs_to :genre
+  belongs_to :texte
   has_many   :notes
   scope :actif,   -> { where(statut: true) }
   scope :inactif, -> { where(statut: false) }
