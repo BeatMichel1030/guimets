@@ -9,6 +9,7 @@ permit_params :texte_id, :cahier, :page, :description,
 filter :texte
 filter :texte_titre_cont
 filter :texte_auteur_nom, as: :select, label: 'auteur', collection: proc {Auteur.all.map(&:nom)}
+filter :cahier
 
 index do
   column :texte
