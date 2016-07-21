@@ -5,16 +5,22 @@ ActiveAdmin.register Citation do
 #
   permit_params :note_id, :textePage, :description, :note_id
 
+  filter :note_texte_auteur_nom,  as: :select, label: 'auteur', collection: proc {Auteur.all.map(&:nom)}
+  filter :note_texte_abreviation, as: :select, label: 'texte',  collection: proc {Texte.all.map(&:abreviation)}
+  filter :note
+  filter :textePage
+  filter :description_cont_all, as: :string, label: 'contient tous'
+
   index do
     column :note
     column :textePage
     column :description
+
+    actions
   end
-
-  filter :note
-
-  filter :description_cont_all, as: :string, label: 'contient tous'
-  # filter :description, as: :string, label: 'contient tous', filters: [:cont_all]
+  show do
+    attributes_table :note, :textePage, :description
+  end
 
   controller do
     before_filter do
