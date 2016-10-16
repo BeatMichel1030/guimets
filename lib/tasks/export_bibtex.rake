@@ -13,6 +13,7 @@ namespace :guimets do
           when 'livre', 'collection'          then puts "@book{#{tx.abreviation}"
           when 'article'                      then puts "@article{#{tx.abreviation}"
           when 'dansCollection', 'dansLivre'  then puts "@incollection{#{tx.abreviation}"
+          when 'actes'                        then puts "@proceedings{#{tx.abreviation}"
         end
         if tx.auteur.present?
           if tx.genre.nom == 'collection'
