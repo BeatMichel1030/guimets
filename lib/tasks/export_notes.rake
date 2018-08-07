@@ -1,8 +1,8 @@
 namespace :guimets do
   desc "export notes"
-  task :notes, [:file_name]  => :environment do |t, args|
+  task :notes => :environment do |t, args|
 # puts args[:file_name]
-    File.open(args[:file_name], "w+") do |f|
+#   File.open(args[:file_name], "w+") do |f|
       Note.all.each do |n|
         titre = if n.description then
                   "#{n.texte.titre} [#{n.description}]"
@@ -17,6 +17,6 @@ namespace :guimets do
  #       STDOUT.puts n.texte.abreviation
         f.puts("#{auteur_nom};#{titre};#{n.cahier};#{n.page}")
       end
-    end
+    # end
   end
 end

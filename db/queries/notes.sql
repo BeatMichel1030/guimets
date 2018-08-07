@@ -1,0 +1,1 @@
+select T.abreviation, N.cahier, N.page from notes N join textes T on T.id = N.texte_id  order by T.abreviation;
