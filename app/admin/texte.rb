@@ -6,7 +6,7 @@ ActiveAdmin.register Texte do
   config.sort_order = 'abreviation_asc'
   permit_params :abreviation, :auteur_id, :titre, :genre_id, :editeur_id,
                 :annee, :journal, :actif, :texte_id, :titre_livre,
-                :volume, :numero, :pages, :remarque
+                :volume, :numero, :pages, :remarque, :cote
   filter :auteur
   filter :titre
   filter :genre
@@ -21,8 +21,8 @@ ActiveAdmin.register Texte do
   end
 
   show do
-    attributes_table :titre, :auteur, :genre, :texte, :editeur, :annee, :remarque,
-                     :titre_livre, :journal, :volume, :numero, :pages, :abreviation, :id, :actif
+    attributes_table :titre, :auteur, :genre,:abreviation, :texte, :editeur, :annee, :remarque,
+                     :titre_livre, :journal, :volume, :numero, :pages, :cote, :id, :actif
 
 
   end

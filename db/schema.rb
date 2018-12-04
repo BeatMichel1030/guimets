@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117151149) do
+ActiveRecord::Schema.define(version: 20180807183007) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160117151149) do
     t.string   "remarque"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "cote"
   end
 
   add_index "textes", ["abreviation"], name: "index_textes_on_abreviation", unique: true
