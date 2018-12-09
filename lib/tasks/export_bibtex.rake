@@ -22,6 +22,9 @@ namespace :guimets do
             puts attribute('author',    tx.auteur.libelle)
           end
         end
+        if tx.genre.nom == 'dansCollection' || (tx.texte.present? && tx.genre.nom == 'dansLivre')
+          puts attribute('booktitle', tx.texte.titre)
+        end
         puts attribute('title',     tx.titre)             if tx.titre.present?
         puts attribute('publisher', tx.editeur.nom)       if tx.editeur.present?
         puts attribute('year',      tx.annee)             if tx.annee.present?
